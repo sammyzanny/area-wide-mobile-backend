@@ -1,8 +1,11 @@
 class CreatePosts < ActiveRecord::Migration[6.0]
   def change
     create_table :posts do |t|
-      t.string :title
-      t.text :body
+      t.string :contact
+      t.text :address
+      t.text :billing
+      t.text :message
+
       t.references :user, null: false
 
       t.timestamps
