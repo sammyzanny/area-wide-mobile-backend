@@ -37,8 +37,11 @@ ActiveRecord::Schema.define(version: 2020_10_16_033538) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
+    t.string "contact"
+    t.text "address"
+    t.text "billing"
+    t.text "message"
+    t.boolean "filled", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -46,14 +49,12 @@ ActiveRecord::Schema.define(version: 2020_10_16_033538) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string "email"
     t.string "password_digest"
     t.string "name"
-    t.string "city"
     t.string "phone"
-    t.string "email"
-    t.boolean "admin", default: false
-    t.text "message"
+    t.string "officename"
+    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
