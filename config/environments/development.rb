@@ -6,6 +6,8 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  config.hosts << "b0a2aeac3053.ngrok.io"
+
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -42,7 +44,16 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
-
+  config.action_mailer.delivery_method = :smtp
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :user_name            => "muffinmannnnnn@gmail.com",
+  :password             => "poniesyay",
+  :authentication       => "plain",
+  :enable_starttls_auto => true
+  }
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
 
