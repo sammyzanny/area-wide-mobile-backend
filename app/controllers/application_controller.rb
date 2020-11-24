@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  # include ActiveStorageSupport::SupportForBase64
+
     before_action :authorized
     # include ActionController::Serialization
 

@@ -15,10 +15,19 @@
 
 
     </ul>
+    <h2>Crack Info</h2>
+    <ul>
+        <li>Client Contact Info: <%= @post.contact %></li>
+        <li>Address: <%= @post.address %></li>
+        <li>Billing Address: <%= @post.billing %></li>
+        <li>Message: <%= @post.message %></li>
 
-    <% @images.each do |image|  %>
-        <%=image_tag image%>
-    <% end %>
+
+    </ul>
+
+        <% @post.images.each do |image| %>
+        <%=image_tag url_for(image)%>
+        <% end %>
     
   </body>
 </html>

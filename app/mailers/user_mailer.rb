@@ -3,9 +3,7 @@ class UserMailer < ApplicationMailer
 
     def upload_email
         @user = params[:user]
-        @message = params[:post].message
-        @images = params[:post].images
-
+        @post = params[:post]
         mail(to: 'muffinmannnnnn@gmail.com', subject: "Crack Upload from #{@user.name}")
     end
 end
