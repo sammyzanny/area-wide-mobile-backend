@@ -10,12 +10,27 @@ class PostsController < ApplicationController
             
     end
 
+
+
     def create
-        @user = current_user
-        @post = Post.new(post_params)
-        @post.user_id = @user.id
-        if @post.save
-            UserMailer.with(user: @user, post: @post).upload_email.deliver_now
+        user = current_user
+        post = Post.new(message: params[:post][:message], address: params[:post][:address], billing: params[:post][:billing], contact: params[:post][:contact])
+        images = params[:post][:images]
+        images_array = []
+        images.each{|img| 
+            decoded_data = Base64.decode64(img)
+
+            images_array.push({ 
+                io: StringIO.new(decoded_data),
+                filename: 'image.jpg'
+            })
+        }
+
+       post.images.attach(images_array)
+
+        post.user_id = user.id
+        if post.save
+            UserMailer.with(user: user, post: post).upload_email.deliver_now
             render json: {message: "Upload Success"}, status: :accepted
         else
             render json: {message: "Upload Failed"}, status: :rejected
