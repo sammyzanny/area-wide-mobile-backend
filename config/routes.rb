@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :auth, only: [:create]
   resources :posts, only: [:create]
   get '/login', to: 'users#profile'
+  post '/forgotpassword', to: 'passwords#forgot'
+  post '/resetpassword', to: 'passwords#reset'
 end
