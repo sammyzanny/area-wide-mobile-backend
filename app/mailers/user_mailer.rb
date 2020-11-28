@@ -6,4 +6,10 @@ class UserMailer < ApplicationMailer
         @post = params[:post]
         mail(to: 'muffinmannnnnn@gmail.com', subject: "Crack Upload from #{@user.name}")
     end
+
+    def reset_email
+        @user = params[:user]
+        mail(to: @user.email, subject: "AreaWide Password Reset")
+    end
+
 end

@@ -28,7 +28,7 @@ class PasswordsController < ApplicationController
     
         if user.present? && user.password_token_valid?
           if user.reset_password!(params[:password])
-            render json: {status: 'ok'}, status: :ok
+            render json: {message: "Password changed successfully"}, status: :ok
           else
             render json: {message: user.errors.full_messages}, status: :unprocessable_entity
           end
