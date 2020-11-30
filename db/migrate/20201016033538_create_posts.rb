@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.text :billing
       t.text :message
       t.boolean :filled, default: false
+      t.integer :reward, default: 0
 
       t.references :user, null: false
 

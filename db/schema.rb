@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_033538) do
     t.text "billing"
     t.text "message"
     t.boolean "filled", default: false
+    t.integer "reward", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -55,6 +56,8 @@ ActiveRecord::Schema.define(version: 2020_10_16_033538) do
     t.string "phone"
     t.string "officename"
     t.string "address"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
