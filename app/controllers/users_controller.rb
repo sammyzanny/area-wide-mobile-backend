@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create, :index, :visit]
+  skip_before_action :authorized, only: [:create, :index]
 
   def profile
     render json: { user: UserSerializer.new(current_user) }, status: :accepted
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     user = current_user
     user.update_attributes(user_params)
     if user.valid?
-      render json: user
+      render json: {user: UserSerializer.new(user), message: "Profile Updated"}, status: :accepted
     else 
       render json: {error: "Profile update did not go through"}
     end
