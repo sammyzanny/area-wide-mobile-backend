@@ -51,3 +51,5 @@ gem 'nokogiri'
 gem 'json'
 
 gem 'active_storage_base64'
+
+gem 'aws-sdk', '~> 2'
