@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-    default from: 'muffinmannnnnn@gmail.com'
+    default from: 'areawidesender@gmail.com'
 
     def upload_email
         @user = params[:user]
