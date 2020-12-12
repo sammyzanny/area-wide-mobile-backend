@@ -2,13 +2,13 @@ development:
   :address: smtp.gmail.com
   :port: 587
   :authentication: plain
-  :user_name: muffinmannnnnn@gmail.com
-  :password: poniesyay
+  :user_name: <%= ENV['EMAIL_SENDER'] %>
+  :password: <%= ENV['EMAIL_PASSWORD'] %>
   :enable_starttls_auto: true
 production:
   :address: smtp.gmail.com
   :port: 587
   :authentication: plain
-  :user_name: awwpinc@gmail.com 
-  :password: 
+  :user_name: <%= ENV['EMAIL_SENDER'] %>
+  :password: <%= ENV['EMAIL_PASSWORD'] %>
   :enable_starttls_auto: true
