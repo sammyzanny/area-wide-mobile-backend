@@ -21,9 +21,8 @@ class PostsController < ApplicationController
 
         post.user_id = user.id
         if post.save
-            UserMailer.with(user: user, post: post).upload_email.deliver_now
             begin
-                UserMailer.welcome_email(@user).deliver
+                UserMailer.with(user: user, post: post).upload_email.deliver_now
                 render json: {message: "Upload Success"}, status: :accepted
             rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
                 render json: {message: "Server Error"}, status: :rejected
