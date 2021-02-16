@@ -25,7 +25,7 @@ class PostsController < ApplicationController
                 UserMailer.with(user: user, post: post).upload_email.deliver_now
                 message = "Upload Success"
             rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
-                message = "Server Error"
+                message = "Upload Success"
             end
             render json: {message: message}, status: :accepted
         else
