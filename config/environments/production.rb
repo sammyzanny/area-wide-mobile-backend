@@ -96,12 +96,13 @@ Rails.application.configure do
   # }
 
   ActionMailer::Base.smtp_settings = {
-  :port           => ENV['MAILGUN_SMTP_PORT'],
+  :port           => 587,
   :address        => ENV['MAILGUN_SMTP_SERVER'],
   :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
   :password       => ENV['MAILGUN_SMTP_PASSWORD'],
   :domain         => 'areawide-mobile-api.heroku.com',
   :authentication => :plain,
+  enable_starttls_auto => true
 }
 
   # Inserts middleware to perform automatic connection switching.

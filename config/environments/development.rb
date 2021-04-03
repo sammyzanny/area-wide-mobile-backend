@@ -49,12 +49,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :user_name            => ENV['EMAIL_SENDER'],
-  :password             => ENV['EMAIL_PASSWORD'],
-  :authentication       => "plain",
-  :enable_starttls_auto => true
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'areawide-mobile-api.heroku.com',
+    :authentication => :plain,
+    enable_starttls_auto => true
   }
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
