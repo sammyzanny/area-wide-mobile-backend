@@ -102,7 +102,7 @@ Rails.application.configure do
   :password       => ENV['MAILGUN_SMTP_PASSWORD'],
   :domain         => 'areawide-mobile-api.heroku.com',
   :authentication => :plain,
-  enable_starttls_auto => true
+  :enable_starttls_auto => true
 }
 
   # Inserts middleware to perform automatic connection switching.
