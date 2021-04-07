@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-    default from: ENV['MAILGUN_SMTP_LOGIN']
+    default from: "postmaster@sandbox030884ec0bfb437989dab7eae1d29204.mailgun.org"
 
     def upload_email
         @user = params[:user]
