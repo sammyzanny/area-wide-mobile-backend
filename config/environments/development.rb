@@ -55,7 +55,7 @@ Rails.application.configure do
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
     :domain         => 'areawide-mobile-api.heroku.com',
     :authentication => :plain,
-    enable_starttls_auto => true
+    :enable_starttls_auto => true
   }
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
